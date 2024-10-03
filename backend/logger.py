@@ -1,8 +1,8 @@
 from pydantic import BaseModel
 
-class LogConfig(BaseModel):
 
-    LOGGER_NAME: str = "mycoolapp"
+class LogConfig(BaseModel):
+    LOGGER_NAME: str = "simple-debug"
     LOG_FORMAT: str = "%(levelprefix)s | %(asctime)s | %(message)s"
     LOG_LEVEL: str = "DEBUG"
 
@@ -21,7 +21,6 @@ class LogConfig(BaseModel):
             "class": "logging.StreamHandler",
             "stream": "ext://sys.stderr",
         },
-
     }
     loggers: dict = {
         LOGGER_NAME: {"handlers": ["default"], "level": LOG_LEVEL},
